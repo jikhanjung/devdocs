@@ -77,7 +77,7 @@
 
 ## 수집 방법 메모 (docs 보고서 참고)
 
-`docs/reference_import_report.md` / `reference_import_report2.md`는 **2026-03-24 ~ 03-26 시점의 일회성 잡 기록**이다. 집계 수치(당시 1,354건 / 756건 등)는 **스냅샷일 뿐 현재 상태가 아니다** — 최신 DB 규모는 [overview.md의 데이터 규모](overview.md#데이터-규모-2026-04-11-기준) 참조. 이 섹션은 **방법론**만 정리한다.
+`docs/reference_import_report.md` / `reference_import_report2.md`는 **2026-03-24 ~ 03-26 시점의 일회성 잡 기록**이다. 집계 수치(당시 1,354건 / 756건 등)는 **스냅샷일 뿐 현재 상태가 아니다** — 최신 DB 규모는 [프로젝트 개요의 데이터 규모](fsis2026-overview.md#데이터-규모-2026-04-11-기준) 참조. 이 섹션은 **방법론**만 정리한다.
 
 ### Unpaywall 기반 OA 탐색
 
@@ -128,7 +128,7 @@
 - [KPRDB](kprdb.md) — Reference 모델, source 필드
 - [북한 논문 데이터](north-korea-data.md) — Oh et al. 2023 후속 NK 논문 PDF/저자 매칭 상세
 - [PDF 파이프라인](pdf-pipeline.md) — OCR 및 추출 처리
-- [프로젝트 개요](overview.md) — 최신 데이터 규모 집계
+- [프로젝트 개요](fsis2026-overview.md) — 최신 데이터 규모 집계
 
 ---
 *Sources: 029, 037, 038, 039, 040, 041, 042, 043, 044, 045, 046, 049, P17, 068 (저널 정리), docs/reference_import_report.md + reference_import_report2.md (방법론만).*

@@ -1,6 +1,6 @@
 # KOFHIN 매뉴얼 (관리자 + 일반사용자)
 
-[KOFHIN](overview.md) (Korea Fossil Heritage Inventory, 프로덕션 URL `https://fsis.psok.or.kr`) 의 운영·입력 매뉴얼. 2026년 4월 기준 `docs/admin_manual.md` (379줄) + `docs/user_manual_data_entry.md` (303줄) 에 기록된 공식 가이드를 정리한 것이다. 기술 아키텍처는 다른 페이지에서 다루지만, 이 페이지는 **"어떤 화면에서 누가 무엇을 어떻게"** 수행하는지에 초점을 둔다.
+[KOFHIN](fsis2026-overview.md) (Korea Fossil Heritage Inventory, 프로덕션 URL `https://fsis.psok.or.kr`) 의 운영·입력 매뉴얼. 2026년 4월 기준 `docs/admin_manual.md` (379줄) + `docs/user_manual_data_entry.md` (303줄) 에 기록된 공식 가이드를 정리한 것이다. 기술 아키텍처는 다른 페이지에서 다루지만, 이 페이지는 **"어떤 화면에서 누가 무엇을 어떻게"** 수행하는지에 초점을 둔다.
 
 ## 사용자 그룹과 역할
 
@@ -332,7 +332,7 @@ PDF에서 자동 추출된 좌표는 **반드시** 사람의 검토를 거쳐야
 
 ## 관련 페이지
 
-- [프로젝트 개요](overview.md) — KOFHIN 사업 맥락
+- [프로젝트 개요](fsis2026-overview.md) — KOFHIN 사업 맥락
 - [KPRDB](kprdb.md) — 논문 모델, 저자/저널
 - [PDF 처리 파이프라인](pdf-pipeline.md) — B.4 기술 상세
 - [GeoHeritage Evaluator](evaluator.md) — B.7 위험도 평가 상세

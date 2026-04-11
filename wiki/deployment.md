@@ -1,6 +1,6 @@
 # 배포 인프라
 
-FSIS2026 / [KOFHIN](overview.md)과 [GHDB](ghdb.md)의 운영 환경 구성. 별도의 `docs/server_architecture.md` 문서(2026-04-07 기준)가 현재 배포 상태의 authoritative 소스다.
+FSIS2026 / [KOFHIN](fsis2026-overview.md)과 [GHDB](ghdb.md)의 운영 환경 구성. 별도의 `docs/server_architecture.md` 문서(2026-04-07 기준)가 현재 배포 상태의 authoritative 소스다.
 
 ## 전체 구조
 
@@ -225,7 +225,7 @@ RUNPOD_ENDPOINT_ID=2vk4pcv7kkn2ax
 - [GHDB](ghdb.md) — GHDB 배포 세부사항
 - [PDF 파이프라인](pdf-pipeline.md) — OCR cron 연계, Claude 추출 파일 우선순위
 - [KOFHIN 매뉴얼](kofhin-manuals.md) — 관리자 운영 가이드
-- [프로젝트 개요](overview.md)
+- [프로젝트 개요](fsis2026-overview.md)
 
 ---
 *Sources: 002, 010, 011, 015, 016, 017, 021, 022, 023, 024, 025, 026, 027, 028, 052, 060, P10, P11, P12, P13, P16, docs/server_architecture.md*

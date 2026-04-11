@@ -1,5 +1,8 @@
 # Wiki Index
 
+## Repo Overview
+- [devdocs 레포 전체 개요](overview.md) — 이 레포가 담는 다섯 프로젝트(FSIS2026/KOFHIN, Trilobase, Modan2, SCODA Engine, PaperMeister)와 그들 사이의 관계 (Noematica 생태계 + 독립 프로젝트 계열), 레포 구조, 워크플로우
+
 ---
 
 ## FSIS2026 / KOFHIN
@@ -7,7 +10,7 @@
 > **공식명**: KOFHIN (Korea Fossil Heritage Inventory) · **프로덕션 URL**: https://fsis.psok.or.kr · 국가유산청 발주, 한국고생물학회 수행 (2026.03~2026.11, 8개월). 한반도 화석산지·표본·문헌 통합 관리 시스템.
 
 ### Project Overview
-- [프로젝트 개요](overview.md) — 사업 맥락, 4대 목표, ID 체계(GeoSite/Specimen/Reference), 5단계 수행계획, 기술 스택, 타임라인, 해외 플랫폼 벤치마크
+- [FSIS2026 / KOFHIN 프로젝트 개요](fsis2026-overview.md) — 사업 맥락, 4대 목표, ID 체계(GeoSite/Specimen/Reference), 5단계 수행계획, 기술 스택, 타임라인, 해외 플랫폼 벤치마크
 
 ### Entity Pages (앱/시스템)
 - [KPRDB](kprdb.md) — 한국 고생물학 논문 데이터베이스 앱 (Reference-ID 소유, Author, Journal)

@@ -66,7 +66,7 @@ Django 3.1.2 → 3.2 LTS → 4.2 LTS → 5.1 → 5.2 LTS
 ## 관련 페이지
 
 - [배포 인프라](deployment.md) — Docker 기반 배포
-- [프로젝트 개요](overview.md)
+- [프로젝트 개요](fsis2026-overview.md)
 
 ---
 *Sources: 001, 004, 025, P01, P02, P03*

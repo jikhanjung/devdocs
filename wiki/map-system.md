@@ -50,7 +50,7 @@ Kakao Maps API → Leaflet.js 1.9.4 → MapLibre GL JS 4.7.1
 ## 관련 페이지
 
 - [평가 시스템](evaluator.md) — 지도 기반 화석산지 평가
-- [프로젝트 개요](overview.md)
+- [프로젝트 개요](fsis2026-overview.md)
 
 ---
 *Sources: 002, 008, 012, 030, 033, P07, P08*

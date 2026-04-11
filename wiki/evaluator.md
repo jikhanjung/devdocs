@@ -1,6 +1,6 @@
 # GeoHeritage Evaluator (화석산지 평가 시스템)
 
-[KOFHIN](overview.md) 프로젝트의 **3번째 핵심 목표**. 화석산지의 보존 위험도를 정량적으로 평가하고, 훼손 가능성·학술 가치·실행 가능성을 결합하여 발굴 우선순위(P0~P4)를 도출하는 GIS 통합 플랫폼. 공식 제안서상 이름은 **GeoHeritage Evaluator(가칭)**이며, 구현 앱명은 `evaluator`.
+[KOFHIN](fsis2026-overview.md) 프로젝트의 **3번째 핵심 목표**. 화석산지의 보존 위험도를 정량적으로 평가하고, 훼손 가능성·학술 가치·실행 가능성을 결합하여 발굴 우선순위(P0~P4)를 도출하는 GIS 통합 플랫폼. 공식 제안서상 이름은 **GeoHeritage Evaluator(가칭)**이며, 구현 앱명은 `evaluator`.
 
 국제 표준인 **Brilha (2016)** 모델을 기반으로 하며, P0~P4 매트릭스는 **Sevieri et al. (2020)**의 다중재해 위험 우선순위화 프레임워크를 따른다.
 
@@ -116,7 +116,7 @@
 
 ## 관련 페이지
 
-- [프로젝트 개요](overview.md) — 사업 전체 맥락
+- [프로젝트 개요](fsis2026-overview.md) — 사업 전체 맥락
 - [지도 시스템](map-system.md) — 지도 인프라 상세
 - [KOFHIN 매뉴얼](kofhin-manuals.md) — 위험도 평가 운영 가이드
 - [KPRDB](kprdb.md) — Reference-ID 연결

@@ -151,7 +151,7 @@
 
 ## 관련 페이지
 
-- [프로젝트 개요](overview.md) — KOFHIN 전체 맥락
+- [프로젝트 개요](fsis2026-overview.md) — KOFHIN 전체 맥락
 - [KPRDB](kprdb.md) — Reference/Author/Journal 모델
 - [데이터 수집](data-import.md) — 전체 reference import 파이프라인
 - [KOFHIN 매뉴얼](kofhin-manuals.md) — 논문/저자 입력 UI

@@ -1,5 +1,13 @@
 # Wiki Log
 
+## [2026-04-11] lint | overview.md 분리 — repo-wide vs FSIS2026
+- **Action**: 기존 `wiki/overview.md`가 레포 전체가 아닌 FSIS2026/KOFHIN 한 프로젝트만 다루고 있어서 이름과 역할이 어긋나 있었음. 파일명을 `fsis2026-overview.md`로 rename하고 (`modan2-overview.md`, `papermeister-overview.md`, `trilobase-overview.md` 네이밍 패턴과 일치), 새 `wiki/overview.md`를 레포 전체의 meta-overview로 작성.
+- **Renamed**: `overview.md` → `fsis2026-overview.md` (git mv로 history 보존)
+- **Pages created**: 1 (`overview.md` — repo meta-overview: 5개 프로젝트 표, Noematica 생태계 vs 독립 프로젝트 관계, 레포 구조, 워크플로우)
+- **Pages updated**: 12 (index.md에 Repo Overview 섹션 추가 및 FSIS2026 링크 텍스트 명확화; fsis2026-overview.md 상단에 meta-overview 포인터 추가; 그리고 overview.md를 참조하던 10개 파일 — kofhin-manuals, django-migration, data-import, deployment, ui-design, evaluator, ghdb, north-korea-data, map-system, task-management — 에서 링크를 fsis2026-overview.md로 업데이트)
+- **Index updated**: Yes (맨 위에 Repo Overview 섹션 신설)
+- **Notes**: 기존 overview.md 제목 "FSIS2026 / KOFHIN 프로젝트 개요"가 이미 범위를 드러내고 있었고, 다른 프로젝트들(Trilobase/Modan2/PaperMeister)은 `*-overview.md` 규약을 따르는데 FSIS2026만 generic한 `overview.md`를 점유하고 있어서 네이밍이 비일관적이었음. 사용자가 이 불일치를 지적해서 수정. 새 repo overview는 Noematica 생태계(PaperMeister → SCODA Engine → Trilobase/PaleoBase + 도메인 feedback loop)와 독립 프로젝트(FSIS2026 용역, Modan2 도구) 두 계열의 관계를 명시적으로 그려준다.
+
 ## [2026-04-11] ingest | fsis2026 delta (1 devlog + 10 docs)
 - **Source**: raw/fsis2026-devlog/ (+1 file, 068 journal cleanup, 2026-04-11) + raw/fsis2026-docs/ (10 files, NEW)
 - **Action**: Incremental delta ingest — previous fsis2026-devlog already processed; 10 docs files never seen before (full ingest); 1 devlog added

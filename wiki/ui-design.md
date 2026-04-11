@@ -76,7 +76,7 @@ Bootstrap Icons 전면 채택:
 
 ## 관련 페이지
 
-- [프로젝트 개요](overview.md)
+- [프로젝트 개요](fsis2026-overview.md)
 - [작업 관리](task-management.md) — 작업 UI 상세
 - [KPRDB](kprdb.md) — 논문 목록 UI
 

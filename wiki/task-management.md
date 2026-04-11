@@ -81,7 +81,7 @@
 
 - [PDF 파이프라인](pdf-pipeline.md) — PDF 뷰어 및 추출 통합
 - [KPRDB](kprdb.md) — Reference 모델
-- [프로젝트 개요](overview.md)
+- [프로젝트 개요](fsis2026-overview.md)
 
 ---
 *Sources: 034, 035, 036, 045, 051, 057, 058, 059, 060, 063, 065, P18, R01*
