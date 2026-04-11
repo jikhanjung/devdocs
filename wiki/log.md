@@ -1,5 +1,37 @@
 # Wiki Log
 
+## [2026-04-11] ingest | fsis2026 delta (1 devlog + 10 docs)
+- **Source**: raw/fsis2026-devlog/ (+1 file, 068 journal cleanup, 2026-04-11) + raw/fsis2026-docs/ (10 files, NEW)
+- **Action**: Incremental delta ingest — previous fsis2026-devlog already processed; 10 docs files never seen before (full ingest); 1 devlog added
+- **Pages created**: 2 (kofhin-manuals, north-korea-data)
+- **Pages updated**: 6 (overview, deployment, evaluator, data-import, kprdb, pdf-pipeline)
+- **Index updated**: Yes (section title changed to "FSIS2026 / KOFHIN", surfaced official production name, added links to 2 new pages + data-import Import 보고서 집계 + sources list updated to include fsis2026-docs)
+- **Notes**: 🔑 **Key discovery**: system is officially named **KOFHIN** (Korea Fossil Heritage Inventory), production URL https://fsis.psok.or.kr. Previously this wiki used only the internal "FSIS2026" codename. PROJECT_PROPOSAL.md provided the authoritative sources for: (1) 국가유산청 contract context (8-month, 4 goals, GeoSite-ID/Specimen-ID/Reference-ID axes, 5-phase execution), (2) exact Brilha 2016 weights (35/20/20/15/10) and P0~P4 Risk×Value×Feasibility matrix, (3) international benchmarks (iDigBio/Smithsonian/ROM/NHM). server_architecture.md provided specifics for deployment.md (GCP IP 34.64.158.160, Nginx 443/8001 routing, host-side cron in /srv/fsis2026/venv, Claude extract file priority `.pdf.extract.claude.json` → `.pdf.extract.json`, IMAGE_TAG 0.3.16, 3 env files). NK author mapping and PDF lists are substantial enough for a dedicated page (north-korea-data.md) that cross-links back to data-import.md as a KPRDB subcorpus. Admin + user manuals (680+ lines combined) consolidated into kofhin-manuals.md. Devlog 068 (journal cleanup + scientific name italic + ref count) slotted into data-import.md (journal dedup) and kprdb.md (italic/count).
+
+## [2026-04-11] ingest | PaperMeister-devlog + PaperMeister-docs (batch)
+- **Source**: raw/PaperMeister-devlog/ (25 files, 2026-03-30 ~ 2026-04-10) + raw/PaperMeister-docs/ (31 files + naming/ subdirectory)
+- **Action**: Initial batch ingest of PaperMeister — two sources combined (devlog + docs)
+- **Pages created**: 8 (papermeister-overview, papermeister-architecture, papermeister-ocr-pipeline, papermeister-biblio-extraction, papermeister-zotero-integration, papermeister-cli-and-gui, papermeister-product-strategy, noematica-brand)
+- **Pages updated**: 0 (fully new project)
+- **Index updated**: Yes (new "PaperMeister" top-level section added after SCODA Engine, with Overview/Architecture, Core Features, Product/Brand subsections)
+- **Notes**: docs/ contained a TOC (`docs/index.md`) covering 8 categories — used as the map. Sampled ~13 files (5 docs + 8 devlog/docs) strategically including the pivot point (010 Project Overview), P07 (most recent 6-layer plan), P04 (LLM biblio strategy), and the naming session (final_name_direction_memo + noematica_brand_package). Key architectural insight: PaperMeister is positioned as a "canonical corpus layer" above external source systems (Zotero/EndNote/dirs), with a clear 6-layer pipeline to SCODA via domain extraction. Business/brand dimension is substantial — docs include pricing, customer discovery, GTM, vs-RAG positioning, and a complete company brand decision (**Noematica**) that spans PaperMeister + SCODA + PaleoBase + Trilobase. `noematica-brand.md` is placed under PaperMeister for now but may be promoted to a top-level "Brand / Meta" section in a future lint pass. Devlog filename numbering is scrambled (planning docs P01-P07 and implementation logs 001-018 share a sequence but are interleaved by date).
+
+## [2026-04-11] ingest | Modan2-devlog (batch)
+- **Source**: raw/Modan2-devlog/ (29 files, 2025-08-28 ~ 2025-09-05)
+- **Action**: Initial batch ingest of the Modan2 9-day code modernization sprint
+- **Pages created**: 6 (modan2-overview, modan2-architecture, modan2-testing, modan2-analysis, modan2-infrastructure, modan2-stability)
+- **Pages updated**: 0 (fully new project — no existing Modan2 references in wiki)
+- **Index updated**: Yes (new "Modan2" top-level section added between Trilobase and SCODA Engine)
+- **Notes**: No DEVLOG_SUMMARY.md present. Read ~10 strategic samples (001 proposal, 007 initial test completion, 010 46KB master plan, 011 MVC completion, 012 QSettings→JSON, 015 error handling, 022 version mgmt completion, 023 analysis debugging, 027 test restructuring, 028 warning resolution, 030 final compat/CI fixes, plus 014/024 for context). Sprint converted a 1,500-line monolith to MVC (40% reduction), built testing from 0 → 192 tests with xvfb CI, modernized config/logging/versioning/build, and fixed 8 analysis bugs in a single session (023). Open questions: no raw file for "016" (sequence gap, possibly unused); Phase 5-6 of master plan (custom widgets, plugin system) remain unimplemented; 37 skipped tests still outstanding at sprint end.
+
+## [2026-04-11] ingest | scoda-engine-devlog (batch)
+- **Source**: raw/scoda-engine-devlog/ (97 files, 2026-02-19 ~ 2026-03-18)
+- **Action**: Initial batch ingest of the standalone scoda-engine repo devlog (post trilobase-split)
+- **Pages created**: 7 (scoda-engine-core, scoda-hub, crud-framework, docker-deployment, multi-package-serving, meta-package, scoda-engine-release)
+- **Pages updated**: 4 (scoda-engine, visualization, scoda, mcp-server — major rewrites to cover v0.1.x → v0.3.4+ scope)
+- **Index updated**: Yes (new "SCODA Engine" top-level section with Architecture / Features / Infrastructure subsections)
+- **Notes**: 25-day sprint spanning S-1 (generic fixture) → S-7 (CI/CD) → Hub → Radial → CRUD → Prod Docker → Tree Chart refactor (SBS/Diff/Morph/Timeline) → Multi-Package Serving v0.3.0 → Mobile UI → Bar Chart → Meta-Package (paleobase). Read DEVLOG_SUMMARY.md + sampled 10+ raw files (P01, 004, 013, 017, 029, 039-041, 042/03-14, 042/03-18, 043, P31). scoda-engine and related pages moved from under "Trilobase" into new "SCODA Engine" top-level section.
+
 ## [2026-04-10] ingest | trilobase-devlog (batch)
 - **Source**: raw/trilobase-devlog/ (103 files + ~150 archive files, 2026-02-04 ~ 2026-03-18)
 - **Action**: Batch ingest of all Trilobase development logs (main + archive)

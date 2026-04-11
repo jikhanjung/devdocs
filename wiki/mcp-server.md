@@ -48,13 +48,15 @@ MCP 도구와 Web API가 공유 쿼리 엔진 사용 (DRY 원칙):
 
 - asyncio 수정 (030)
 - MCP subprocess 테스트
+- **scoda-engine 독립 후 수정** (2026-02-20, 003/P04): subprocess가 trilobase DB 고정 경로에 의존하던 문제를 `SCODA_DB_PATH` 환경변수로 해결. generic fixture와 함께 마이그레이션되어 도메인 독립적 테스트 가능.
 - 100+ pytest 테스트 케이스
 
 ## 관련 페이지
 
 - [scoda-engine](scoda-engine.md) — 서버 런타임
 - [SCODA 아키텍처](scoda.md) — 패키지 규격
+- [scoda-engine-core](scoda-engine-core.md) — generic fixture 기반 테스트
 - [Trilobase 개요](trilobase-overview.md)
 
 ---
-*Sources: archive/022, 023-026, 028-030, 055-057, 066, P14-P19, P48, SCODA_MCP_Wrapping_Plan*
+*Sources: archive/022, 023-026, 028-030, 055-057, 066, P14-P19, P48, SCODA_MCP_Wrapping_Plan. scoda-engine: 003, P04.*

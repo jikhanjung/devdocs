@@ -75,11 +75,60 @@
 - 중복 논문 5그룹 식별
 - 잘못 연결된 PDF 교정
 
+## 수집 방법 메모 (docs 보고서 참고)
+
+`docs/reference_import_report.md` / `reference_import_report2.md`는 **2026-03-24 ~ 03-26 시점의 일회성 잡 기록**이다. 집계 수치(당시 1,354건 / 756건 등)는 **스냅샷일 뿐 현재 상태가 아니다** — 최신 DB 규모는 [overview.md의 데이터 규모](overview.md#데이터-규모-2026-04-11-기준) 참조. 이 섹션은 **방법론**만 정리한다.
+
+### Unpaywall 기반 OA 탐색
+
+- DOI가 있는 논문에 대해 Unpaywall API 호출
+- J-STAGE OA의 경우 `/_article/` URL을 `/_pdf/` 로 치환하여 직접 다운로드 (Unpaywall이 paywall로 오판하는 경우에도 실제로는 OA인 경우 있음)
+- 실패 분류: Springer paywall, jgsk.or.kr paywall, Elsevier/BioOne, OA이지만 PDF URL 없음
+
+### ejournal URL 직접 접근
+
+- jpaleodb 논문의 `ejournal_url` 필드를 활용
+- 성공 도메인: `umdb.um.u-tokyo.ac.jp` (도쿄대 박물관 Kobayashi 시리즈), `dinosaur.pref.fukui.jp` (후쿠이 공룡박물관)
+- 실패 도메인: `hdl.handle.net` (인증/404)
+
+### DBpia API 리버스엔지니어링
+
+- 내부 엔드포인트: `POST /voisListAjax`, `POST /journal/voisNodeList`, `GET /pdf/pdfView.do?nodeId=`
+- 호(volume) 목록 → 논문 목록 → PDF 순차 수집
+
+### CrossRef ISSN 검색 + DOI→DBpia 매핑
+
+- ISSN 기반 학술지 검색
+- 고생물학 키워드로 필터링
+- DOI를 DBpia nodeId로 매핑하여 DBpia API로 PDF 다운로드
+
+### PDF 미확보 목록 (역사 자료)
+
+`docs/pdf_missing_unassigned.md` (297건, 연도별) · `docs/pdf_missing_nk.md` (3건, NK). 모두 **2026-04-07 기준 스냅샷**이며 이후 일부 확보되었을 수 있음.
+
+## 저널 데이터 정리 (068, 2026-04-11)
+
+프로덕션 DB에서 중복/오타 저널 병합:
+
+| 병합 전 | 병합 후 | 건수 |
+|---|---|---|
+| IGCP-350 저널 5개 (625/629/630/631) | **628** (통합) | 6건 |
+| "Geosciences Journa" (오타, 459) | **451** "Geosciences Journal" | 9건 |
+| "ICHNOS-AN INTERNATIONAL..." (563) | **435** "Ichnos" | 4건 |
+| "Journal of paleontology" 소문자(430) | **428** "Journal of Paleontology" | 2건 |
+| 지구과학회지 3중(427/431/513) | **470** (영문+원어 동시 설정) | 68건 |
+| Geological Society of Korea 2중(426/429) | **420** (영문+원어 동시 설정) | 236건 |
+
+- 개별 논문 저널 수동 교정 다수 (ref 2102/2103/2155/2331/2520/2672/2679/2813/2710/3610/2936/3571 등)
+- 도서 3건은 `journal=None` (저널 아님, ref 2372/2376/2387 최덕근)
+- **병합 후 빈 저널은 `is_deleted=True` soft delete**: 424, 438, 479, 507, 531, 532, 493, 497, 492, 485, 477, 482, 508, 566, 642
+
 ## 관련 페이지
 
 - [KPRDB](kprdb.md) — Reference 모델, source 필드
+- [북한 논문 데이터](north-korea-data.md) — Oh et al. 2023 후속 NK 논문 PDF/저자 매칭 상세
 - [PDF 파이프라인](pdf-pipeline.md) — OCR 및 추출 처리
-- [프로젝트 개요](overview.md)
+- [프로젝트 개요](overview.md) — 최신 데이터 규모 집계
 
 ---
-*Sources: 029, 037, 038, 039, 040, 041, 042, 043, 044, 045, 046, 049, P17*
+*Sources: 029, 037, 038, 039, 040, 041, 042, 043, 044, 045, 046, 049, P17, 068 (저널 정리), docs/reference_import_report.md + reference_import_report2.md (방법론만).*

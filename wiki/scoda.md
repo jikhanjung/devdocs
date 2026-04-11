@@ -17,18 +17,31 @@
 
 ```
 {package_id}-{version}.scoda (ZIP)
-├── {name}-{version}.db          # SQLite 정전 DB
-├── manifest.json                # 뷰/쿼리 정의
+├── {name}-{version}.db          # SQLite 정전 DB (meta-package는 없음)
+├── manifest.json                # 뷰/쿼리 정의 + kind + dependencies
 ├── metadata.json                # 패키지 메타데이터
 ├── README.md                    # 설명
-├── CHANGELOG.md                 # 변경 이력
-└── checksums.sha256             # 무결성 검증
+├── CHANGELOG.md                 # 변경 이력 (Keep a Changelog 형식)
+├── checksums.sha256             # 무결성 검증
+├── meta_tree.json               # meta-package 전용 (선택)
+└── package_bindings.json        # meta-package 전용 (선택)
 ```
+
+### `kind` 필드 (2026-03-18 도입)
+
+- `"package"` (기본값): 일반 SCODA 패키지, `data.db` 포함
+- `"meta-package"`: `data.db` 없이 다른 패키지들을 합성하는 상위 레벨 패키지 (예: paleobase)
+  - `meta_tree.json`, `package_bindings.json` 포함
+  - `verify_checksum()` skip, `record_count = 0`
+  - 하위 패키지 multi-ATTACH로 조회
+  - 상세: [Meta-Package](meta-package.md)
 
 ### Hub Manifest
 - `{package_id}-{version}.manifest.json`: SCODA Hub Registry 등록용
 - SHA-256 해시, 의존성 선언, 패키지 메타데이터
 - GitHub Release에 자동 업로드
+- 파일명에 버전 포함 규칙 (2026-02-25, 017)
+- 상세: [SCODA Hub](scoda-hub.md)
 
 ## 매니페스트 시스템
 
@@ -70,12 +83,19 @@ opinion_type별 동적 컬럼 라벨:
 - 스키마 정규화 (manifest_schema_normalization)
 - 자동 검색(auto-discovery) + fallback 메커니즘
 
-## Spec-Implementation 동기화
+## Spec-Implementation 동기화 (S-5, 2026-02-22)
 
-3가지 불일치 해소 (P67):
-1. checksums → 매니페스트에 임베드
-2. dependency version → 범위 형식 (>=X,<Y)
-3. required 필드 추가
+scoda-engine 독립 후 SCODA 스펙과 런타임 코드 사이 5개 갭 해소:
+
+1. **Checksum-on-load 검증** — `ScodaPackage` 로드 시 자동 SHA-256 검증
+2. **Dependency `required` 필드** — optional/required 구분
+3. **SemVer range 파싱** — `">=X,<Y"` AND 형식, `>=`, `<`, `,` 연산자
+4. **예외 클래스 3개** — `ScodaDependencyError`, `ScodaChecksumError`, `ScodaManifestError`
+5. **CHANGELOG.md 지원** — Keep a Changelog 형식, 패키지에 포함
+
+추가로 Boolean 라벨 통일(`true_label`/`false_label`, 전역 기본값), `label_map` 동적 컬럼 라벨(S-6) 반영.
+
+`validate_manifest.py`는 S-3(2026-02-22)에서 `scoda-engine-core`로 이동하여 trilobase 측 중복 제거. 상세: [scoda-engine-core](scoda-engine-core.md).
 
 ## 오버레이 시스템
 
@@ -98,8 +118,13 @@ opinion_type별 동적 컬럼 라벨:
 ## 관련 페이지
 
 - [scoda-engine](scoda-engine.md) — SCODA 뷰어/서버 런타임
+- [scoda-engine-core](scoda-engine-core.md) — 독립 stdlib-only Core 패키지
+- [SCODA Hub](scoda-hub.md) — 정적 레지스트리
+- [Meta-Package](meta-package.md) — kind=meta-package
 - [Trilobase 개요](trilobase-overview.md)
 - [Packages](packages.md) — SCODA 기반 패키지들
+- [PaperMeister 아키텍처](papermeister-architecture.md) — PaperMeister corpus → SCODA 6-layer 파이프라인의 upstream
+- [Noematica 브랜드](noematica-brand.md) — SCODA는 Noematica 생태계의 L2 제품
 
 ---
-*Sources: 012-018, 020-021, 030, 049, 052, 074-076, 085, 089, 094-095, 104, P07-P12, P20, P58-P59, P65, P67, P77*
+*Sources (trilobase archive): 012-018, 020-021, 030, 049, 052, 074-076, 085, 089, 094-095, 104, P07-P12, P20, P58-P59, P65, P67, P77. Sources (scoda-engine): P05, P06, P08, P09, 005-007, 017, P31, 042-043.*

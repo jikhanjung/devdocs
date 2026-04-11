@@ -38,6 +38,19 @@
 - **페이지네이션**: 인라인 paginator, author_detail/journal_detail에도 적용 (20건/페이지)
 - **컬럼**: author+year 병합, 언어별 저널명 표시, 압축 헤더 (Taxa→Tx, Specimens→Sp)
 
+## 학명 이탤릭 렌더링 (068, 2026-04-11)
+
+`scientific_name` 필드에 저장된 `<i>...</i>` 태그가 실제 이탤릭으로 표시되도록 템플릿에 `|safe` 필터 적용. 적용 파일 5개:
+- `evaluator/type_specimen_list.html`
+- `evaluator/specimen_assessment_detail.html`
+- `evaluator/specimen_assessment_form.html`
+- `evaluator/site_specimen_list.html`
+- `fsis/fossil_site_detail.html`
+
+## 저널 목록 논문 수 표시 (068)
+
+`journal_list` 뷰에 `annotate(ref_count=Count('reference'))` 추가. `journal_list.html` 템플릿에 "논문" 컬럼(60px, 중앙 정렬) 신규. → 저널별 출판 편수를 한눈에 확인 가능. 저널 데이터 정리(dedup/merge) 작업과 함께 수행되어 정리 효과를 가시화. 상세 병합 목록은 [데이터 수집 > 저널 데이터 정리](data-import.md#저널-데이터-정리-068-2026-04-11) 참조.
+
 ## 저자 관리
 
 - 드래그앤드롭 저자 순서 변경 (HTML5 drag-and-drop, grip 아이콘)
@@ -51,8 +64,10 @@
 ## 관련 페이지
 
 - [PDF 처리 파이프라인](pdf-pipeline.md) — 논문 PDF에서 데이터 추출
-- [데이터 수집](data-import.md) — 외부 소스에서 논문 임포트
+- [데이터 수집](data-import.md) — 외부 소스에서 논문 임포트, 저널 정리 상세
+- [북한 논문 데이터](north-korea-data.md) — NK 저자 한글 매핑 출처
 - [작업 관리](task-management.md) — 논문 처리 작업 할당
+- [KOFHIN 매뉴얼](kofhin-manuals.md) — 논문 등록 / 검토 워크플로우
 
 ---
-*Sources: 001, 006, 007, 029, 031, 032, 037-044, 062, 064, 066, 067*
+*Sources: 001, 006, 007, 029, 031, 032, 037-044, 062, 064, 066, 067, **068**, docs/admin_manual.md, docs/user_manual_data_entry.md.*

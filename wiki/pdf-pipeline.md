@@ -57,7 +57,10 @@ PDF → [1. OCR] → .pdf.json
 현재:  .pdf.json → .pdf.extract.json → .pdf.extract.claude.json
 ```
 - 420건 기존 파일 마이그레이션 (migrate_claude_extract.py)
-- `_best_extract_path()` 헬퍼: 최선 데이터 자동 선택
+- `_best_extract_path()` 헬퍼 (`views.py`): 최선 데이터 자동 선택
+  - **우선순위**: `.pdf.extract.claude.json` 있으면 사용, 없으면 `.pdf.extract.json` fallback
+  - PDF 뷰어/워크스페이스/상세 페이지 모두 이 헬퍼를 거쳐 단일 진실의 원천 유지
+  - 서버 아키텍처 문서(`docs/server_architecture.md`)에 공식 기록
 
 ## Figure-Caption 매칭
 
@@ -93,6 +96,8 @@ OCR 첫 페이지 메타데이터와 DB 레코드 비교:
 - [KPRDB](kprdb.md) — Reference 모델의 extracted_data 필드
 - [작업 관리](task-management.md) — 작업 워크스페이스에서 PDF 뷰어 통합
 - [데이터 수집](data-import.md) — PDF 확보 파이프라인
+- [배포 인프라](deployment.md) — 호스트 측 cron + venv 구조, 파일 권한/umask
+- [KOFHIN 매뉴얼](kofhin-manuals.md) — 관리자용 PDF 처리 현황 페이지
 
 ---
-*Sources: 019, 028, 029, 047, 048, 049, 050, 053, 054, 055, 056, 059, 061, 063, P14*
+*Sources: 019, 028, 029, 047, 048, 049, 050, 053, 054, 055, 056, 059, 061, 063, P14, docs/server_architecture.md, docs/admin_manual.md.*

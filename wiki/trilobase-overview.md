@@ -67,6 +67,8 @@
 - [MCP 서버](mcp-server.md) — LLM 통합
 - [Multi-package](packages.md) — brachiobase, graptobase, paleobase
 - [Treatise 추출](treatise-extraction.md) — Treatise 원문에서 분류 체계 추출
+- [PaperMeister 아키텍처](papermeister-architecture.md) — PaleoBase ↔ PaperMeister feedback loop (문헌 corpus → 도메인 DB 공급)
+- [Noematica 브랜드](noematica-brand.md) — Trilobase는 Noematica 생태계의 domain knowledge 레이어
 
 ---
 *Sources: raw/trilobase-devlog/ (103 files) + raw/trilobase-devlog/archive/ (~150 files), 2026-02-04 ~ 2026-03-18*
